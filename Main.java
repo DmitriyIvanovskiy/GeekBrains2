@@ -19,14 +19,33 @@ public class Main {
         applesTwo.add(new Apple());
         Box boxTwo = new Box(applesTwo);
 
+        List<Fruit> orangeOne = new ArrayList<>();
+        orangeOne.add(new Orange());
+        orangeOne.add(new Orange());
+        orangeOne.add(new Orange());
+        orangeOne.add(new Orange());
+        Box boxThree = new Box(orangeOne);
+
         System.out.println(boxOne.getWeight());
         System.out.println(boxTwo.getWeight());
+        System.out.println(boxThree.getWeight());
 
+        System.out.println(boxOne.compare(boxTwo));
+        System.out.println(boxTwo.compare(boxThree));
+        System.out.println(boxOne.compare(boxThree));
 
-        boxOne.addAllFruits(boxTwo);
+        System.out.println(boxOne.addAllFruits(boxTwo));
+        System.out.println(boxTwo.addAllFruits(boxThree));
+        System.out.println(boxOne.addAllFruits(boxTwo));
 
         System.out.println(boxOne.getWeight());
         System.out.println(boxTwo.getWeight());
+        System.out.println(boxThree.getWeight());
+
+        System.out.println(boxOne.compare(boxTwo));
+        System.out.println(boxTwo.compare(boxThree));
+        System.out.println(boxOne.compare(boxThree));
+
 
         //Данные для задачи 1:
         String [] array = {"1", "2", "3", "4"};

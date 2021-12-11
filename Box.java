@@ -12,17 +12,32 @@ public class Box {
     }
 
     public double getWeight() {
-        return boxFruit.get(0).getWeight() * boxFruit.size();
+        int count = boxFruit.size();
+        double weight = 0;
+
+        if (count > 0) {
+            weight = boxFruit.get(0).getWeight();
+        }
+        return count * weight;
+
     }
 
-    public boolean compare (Box box) {
+    public boolean compare(Box box) {
         return getWeight() == box.getWeight();
     }
 
-    public void addAllFruits (Box box){
+    public String addAllFruits(Box box) {
         List<Fruit> fruits = box.getBoxFruit();
-        if (boxFruit.getClass().equals(fruits.getClass())){
-            fruits.addAll(fruits.size(), getBoxFruit());
+        if (boxFruit.size() != 0 && fruits.size() != 0) {
+            if (boxFruit.get(0).getClass().equals(fruits.get(0).getClass())) {
+                fruits.addAll(fruits.size(), getBoxFruit());
+                boxFruit.clear();
+            } else {
+                return "Рвзные типы фруктов";
+            }
+        } else {
+            return "Пустая коробка";
         }
+        return "Фрукты переложили";
     }
 }
